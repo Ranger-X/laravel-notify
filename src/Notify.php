@@ -29,7 +29,7 @@ class Notify
      * @param      $title
      * @param int  $delay
      */
-    public function info($content, $title, $delay)
+    public function info($content, $title = '', $delay = 5000)
     {
         $this->message('info', $content, $title, $delay);
     }
@@ -41,7 +41,7 @@ class Notify
      * @param      $title
      * @param int  $delay
      */
-    public function success($content, $title, $delay)
+    public function success($content, $title = '', $delay = 5000)
     {
         $this->message('success', $content, $title, $delay);
     }
@@ -53,7 +53,7 @@ class Notify
      * @param      $title
      * @param int  $delay
      */
-    public function error($content, $title, $delay)
+    public function error($content, $title = '', $delay = 5000)
     {
         $this->message('danger', $content, $title, $delay);
     }
@@ -65,7 +65,7 @@ class Notify
      * @param      $content
      * @param int  $delay
      */
-    public function danger($content, $title, $delay)
+    public function danger($content, $title = '', $delay = 5000)
     {
         $this->message('danger', $content, $title, $delay);
     }
@@ -77,7 +77,7 @@ class Notify
      * @param      $title
      * @param int  $delay
      */
-    public function warning($content, $title, $delay)
+    public function warning($content, $title = '', $delay = 5000)
     {
         $this->message('warning', $content, $title, $delay);
     }
