@@ -1,4 +1,6 @@
-@push('scripts')
+@section('scripts')
+	@parent
+    <!-- laravel-notify script -->
 	<script type="text/javascript" charset="utf-8">
         $(function ()
         {
@@ -19,4 +21,4 @@
             @endif
         });
 	</script>
-@endpush
+@endsection
