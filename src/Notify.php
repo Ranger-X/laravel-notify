@@ -1,5 +1,5 @@
 <?php
-namespace Bpocallaghan\Notify;
+namespace RangerX\Notify;
 
 use Illuminate\Session\Store;
 
@@ -25,106 +25,97 @@ class Notify
     /**
      * Flash an info notification
      *
-     * @param             $title
-     * @param             $content
-     * @param bool|string $icon
-     * @param bool|string $iconSmall
+     * @param      $content
+     * @param      $title
+     * @param int  $delay
      */
-    public function info($title, $content, $icon = true, $iconSmall = true)
+    public function info($content, $title, $delay)
     {
-        $this->message('info', $title, $content, $icon, $iconSmall);
+        $this->message('info', $content, $title, $delay);
     }
 
     /**
      * Flash a success notification
      *
-     * @param             $title
-     * @param             $content
-     * @param bool|string $icon
-     * @param bool|string $iconSmall
+     * @param      $content
+     * @param      $title
+     * @param int  $delay
      */
-    public function success($title, $content, $icon = true, $iconSmall = true)
+    public function success($content, $title, $delay)
     {
-        $this->message('success', $title, $content, $icon, $iconSmall);
+        $this->message('success', $content, $title, $delay);
     }
 
     /**
      * Flash an error notification
      *
-     * @param             $title
-     * @param             $content
-     * @param bool|string $icon
-     * @param bool|string $iconSmall
+     * @param      $content
+     * @param      $title
+     * @param int  $delay
      */
-    public function error($title, $content, $icon = true, $iconSmall = true)
+    public function error($content, $title, $delay)
     {
-        $this->message('danger', $title, $content, $icon, $iconSmall);
+        $this->message('danger', $content, $title, $delay);
     }
 
     /**
      * Flash an danger notification
      *
-     * @param             $title
-     * @param             $content
-     * @param bool|string $icon
-     * @param bool|string $iconSmall
+     * @param      $title
+     * @param      $content
+     * @param int  $delay
      */
-    public function danger($title, $content, $icon = true, $iconSmall = true)
+    public function danger($content, $title, $delay)
     {
-        $this->message('danger', $title, $content, $icon, $iconSmall);
+        $this->message('danger', $content, $title, $delay);
     }
 
     /**
      * Flash a warning notification
      *
-     * @param             $title
-     * @param             $content
-     * @param bool|string $icon
-     * @param bool|string $iconSmall
+     * @param      $content
+     * @param      $title
+     * @param int  $delay
      */
-    public function warning($title, $content, $icon = true, $iconSmall = true)
+    public function warning($content, $title, $delay)
     {
-        $this->message('warning', $title, $content, $icon, $iconSmall);
+        $this->message('warning', $content, $title, $delay);
     }
 
     /**
      * Flash a notification message
      *
-     * @param string      $level
-     * @param             $title
+     * @param string      $type
      * @param             $content
-     * @param bool|string $icon
-     * @param             $iconSmall
-     * @param int         $timeout
+     * @param string      $title
+     * @param int         $delay
      */
     public function message(
-        $level = 'info',
-        $title,
+        $type = 'info',
         $content,
-        $icon,
-        $iconSmall,
-        $timeout = 5000
+        $title = '',
+        $delay = 5000
     ) {
-        $this->session->flash('notify.level', $level);
+        $this->session->flash('notify.type', $type);
         $this->session->flash('notify.title', $title);
         $this->session->flash('notify.content', $content);
 
         // if icon == true, get icon from level, else if icon is string, set icon
-        if ((is_bool($icon) && $icon == true) || strlen($icon) > 1) {
-            $icon = is_string($icon) ? $icon : notify_icon($level);
-
-            $this->session->flash('notify.icon', $icon . ' animated');
-        }
+        //if ((is_bool($icon) && $icon == true) || strlen($icon) > 1) {
+        //    $icon = is_string($icon) ? $icon : notify_icon($level);
+        //
+        //    $this->session->flash('notify.icon', $icon . ' animated');
+        //}
 
         // if icon == true, get icon from level, else if icon is string, set icon
-        if ((is_bool($iconSmall) && $iconSmall == true) || strlen($iconSmall) > 1) {
-            $iconSmall = is_string($iconSmall) ? $iconSmall : notify_icon_small($level);
+        //if ((is_bool($iconSmall) && $iconSmall == true) || strlen($iconSmall) > 1) {
+        //    $iconSmall = is_string($iconSmall) ? $iconSmall : notify_icon_small($level);
+        //
+        //    $this->session->flash('notify.iconSmall', $iconSmall . ' animated');
+        //}
 
-            $this->session->flash('notify.iconSmall', $iconSmall . ' animated');
-        }
-
-        if ($timeout > 0) {
-            $this->session->flash('notify.timeout', $timeout);
+        if ($delay > 0) {
+            $this->session->flash('notify.delay', $delay);
         }
     }
 }

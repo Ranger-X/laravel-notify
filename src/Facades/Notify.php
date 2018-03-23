@@ -1,4 +1,4 @@
-<?php namespace Bpocallaghan\Notify\Facades;
+<?php namespace RangerX\Notify\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

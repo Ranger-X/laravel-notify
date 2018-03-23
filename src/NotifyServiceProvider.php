@@ -1,6 +1,6 @@
 <?php
 
-namespace Bpocallaghan\Notify;
+namespace RangerX\Notify;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -19,9 +19,9 @@ class NotifyServiceProvider extends ServiceProvider
             __DIR__ . '/../resources/views' => base_path('resources/views/vendor/notify')
         ], 'view');
 
-        $this->publishes([
-            __DIR__ . '/../resources/assets' => public_path('vendor/notify'),
-        ], 'public');
+        //$this->publishes([
+        //    __DIR__ . '/../resources/assets' => public_path('vendor/notify'),
+        //], 'public');
     }
 
     /**

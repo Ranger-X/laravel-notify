@@ -1,6 +1,6 @@
 {
-    "name": "bpocallaghan/notify",
-    "description": "Laravel 5 Flash Notifications with icons and animations and with a timeout",
+    "name": "rangerx/laravel-notify",
+    "description": "Laravel 5 Flash Notifications",
     "keywords": [
         "laravel",
         "flash",
@@ -11,8 +11,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Ben-Piet O'Callaghan",
-            "email": "bpocallaghan@gmail.com"
+            "name": "RangerX",
+            "email": "rangerx.1985@gmail.com"
         }
     ],
     "require": {
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Bpocallaghan\\Notify\\": "src/"
+            "RangerX\\Notify\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -29,10 +29,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Bpocallaghan\\Notify\\NotifyServiceProvider"
+                "RangerX\\Notify\\NotifyServiceProvider"
             ],
             "aliases": {
-                "Alert": "Bpocallaghan\\Notify\\Facades\\Notify"
+                "Alert": "RangerX\\Notify\\Facades\\Notify"
             }
         }
     }

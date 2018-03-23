@@ -3,22 +3,18 @@
 	<script type="text/javascript" charset="utf-8">
         $(function ()
         {
-            @if (session('notify.title'))
+            @if (session('notify.content'))
                 $.notify({
-                    title: "{!! session('notify.title') !!}",
-                    content: "{!! session('notify.content') !!}",
-                    level: "{{ session('notify.level') }}",
-
-                    @if (session('notify.icon'))
-                        icon: "fa fa-{{ session('notify.icon') }}",
-                    @endif
-
-                    @if (session('notify.iconSmall'))
-                        iconSmall: "fa fa-{{ session('notify.iconSmall') }}",
-                    @endif
-
-                    @if (session('notify.timeout'))
-                        timeout: {{ session('notify.timeout') }},
+                    message: "{!! session('notify.content') !!}",
+                }, {
+                    type: "{{ session('notify.type') }}",
+                    //mouse_over: 'pause',
+                    placement: {
+                        from: "top",
+                        align: "center"
+                    },
+                    @if (session('notify.delay'))
+                        delay: {{ session('notify.delay') }},
                     @endif
                 });
             @endif
