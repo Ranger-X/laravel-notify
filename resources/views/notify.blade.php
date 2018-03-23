@@ -1,5 +1,4 @@
-@section('scripts')
-	@parent
+@push('scripts')
 	<script type="text/javascript" charset="utf-8">
         $(function ()
         {
@@ -20,4 +19,4 @@
             @endif
         });
 	</script>
-@endsection
+@endpush
