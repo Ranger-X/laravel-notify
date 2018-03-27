@@ -89,16 +89,20 @@ class Notify
      * @param             $content
      * @param string      $title
      * @param int         $delay
+     * @param array       $options
      */
     public function message(
         $type = 'info',
         $content,
         $title = '',
-        $delay = 5000
+        $delay = 5000,
+        $options = []
     ) {
         $this->session->flash('notify.type', $type);
         $this->session->flash('notify.title', $title);
         $this->session->flash('notify.content', $content);
+
+        $this->session->flash('notify.options', $options);
 
         // if icon == true, get icon from level, else if icon is string, set icon
         //if ((is_bool($icon) && $icon == true) || strlen($icon) > 1) {

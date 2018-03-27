@@ -9,11 +9,13 @@
                     message: "{!! session('notify.content') !!}",
                 }, {
                     type: "{{ session('notify.type') }}",
-                    //mouse_over: 'pause',
                     placement: {
                         from: "top",
                         align: "center"
                     },
+					@@foreach(session('notify.options') as $option => $value)
+					{{ $option }}: '{{ $value }}',
+					@@endforeach
                     @if (session('notify.delay'))
                         delay: {{ session('notify.delay') }},
                     @endif
