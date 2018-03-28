@@ -13,9 +13,9 @@
                         from: "top",
                         align: "center"
                     },
-					@@foreach(session('notify.options') as $option => $value)
+					@foreach(session('notify.options') as $option => $value)
 					{{ $option }}: '{{ $value }}',
-					@@endforeach
+					@endforeach
                     @if (session('notify.delay'))
                         delay: {{ session('notify.delay') }},
                     @endif
